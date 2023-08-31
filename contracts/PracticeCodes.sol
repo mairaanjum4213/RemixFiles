@@ -149,29 +149,7 @@ contract Event{
         emit Log(msg.sender, "Heloo maira");
     
     }
-}
 
-
-contract Counter{
-    uint public count;
-
-    function increment() external{
-        count+=1;
-    }
-}
-
-interface ICounter{
-    function count() external view returns(uint);
-    function increment() external;
-}
-
-contract Counter2{
-    uint public count;
-    function test(address addr) external {
-        ICounter(addr).increment();
-        count=ICounter(addr).count();
-
-    }
 
 }
 
