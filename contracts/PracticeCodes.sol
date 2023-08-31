@@ -131,14 +131,8 @@ contract Todos{
         todo.textvar=_text;
     }
 
-    function toggleCompleted(uint _index) public {
-        Todo storage todo = todos[_index];
-        todo.completed = !todo.completed;
-    }
-
 
 }
-
 
 contract Event{
     event Log(address indexed sender, string message); //declare
