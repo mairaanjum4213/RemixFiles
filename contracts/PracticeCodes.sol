@@ -173,38 +173,5 @@ contract Counter2{
 
     }
 
-  
-}
-
-
-contract Payable{
-
-    address payable public owner;
-    constructor() payable{
-        owner =payable(msg.sender);
-    }
-
-    //Function to deposit ether in contract
-    //Call this function along with some ether
-    //The balance of contract will autoatically updated
-    function deposit() public payable{}
-
-    function notPayable() public{}
-
-
-    //Function to withdraw ether
-    function withdraw()  public {
-        uint amount = address(this).balance;
-        //send to owner he canreceive bcz his address is payable
-        (bool success,) = owner.call{value:amount}("");
-        require(success, "Failed to send ether");
-    }
-
-    //Function to tranfer ether from this contract to address given by user
-    function transfer(address payable _to, uint _amount) public{
-         //send to _to  canreceive bcz his address is payable
-        (bool success,) = _to.call{value:_amount}("");
-        require(success, "Failed to send ether");
-    }
 }
 
